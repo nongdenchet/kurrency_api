@@ -14,6 +14,7 @@ config :kurrency, Kurrency.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "m81M/lhtWFvRUH+T6WcBglU3WuCQN1Xdldmk3XNcLH4wif80Xoez99PI/jnswdpa",
   render_errors: [view: Kurrency.ErrorView, accepts: ~w(html json)],
+  api_key: System.get_env("API_KEY"),
   pubsub: [name: Kurrency.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
