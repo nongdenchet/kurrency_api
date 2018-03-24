@@ -2,7 +2,7 @@ defmodule Support.Retry do
 
   def retry(task, retries \\ 0, delay \\ 1000) do
     case task.() do
-      {:ok, result} -> result
+      {:ok, result} -> {:ok, result}
       {:error, error} ->
         if retries > 0 do
           :timer.sleep(500)
