@@ -1,11 +1,18 @@
 defmodule Adapter.KurrencyApi do
   import HTTPoison
   import Poison
+  import Support.Retry
 
   def fetch do
-    api_key
-    |> url
-    |> call
+    Support.Retry.retry(fetch_task, 3, 500)
+  end
+
+  defp fetch_task do
+    fn ->
+      api_key
+      |> url
+      |> call
+    end
   end
 
   defp call(url) do
