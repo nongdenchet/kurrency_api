@@ -2,13 +2,13 @@ defmodule Kurrency.TokenPlug do
   import Plug.Conn
   import Phoenix.Controller
 
-  def init(opts) do
+  def init(_opts) do
   end
 
-  def call(conn, repo) do
+  def call(conn, _opts) do
     token = conn.params["access_key"]
     if token do
-      assign(conn, :authenticated, encode(token) == get_system_token)
+      assign(conn, :authenticated, encode(token) == get_system_token())
     else
       assign(conn, :authenticated, false)
     end

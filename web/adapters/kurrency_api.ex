@@ -1,9 +1,6 @@
 defmodule Adapter.KurrencyApi do
-  import HTTPoison
-  import Poison
-
   def fetch do
-    api_key
+    api_key()
     |> url
     |> call
   end

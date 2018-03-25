@@ -3,7 +3,6 @@ defmodule Kurrency.LoadQuote do
 
   alias Kurrency.Repo
   alias Kurrency.Quote
-  alias Kurrency.Currency
 
   def execute do
     Quote
