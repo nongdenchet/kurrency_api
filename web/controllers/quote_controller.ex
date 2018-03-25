@@ -3,6 +3,8 @@ defmodule Kurrency.QuoteController do
 
   alias Kurrency.LoadQuote
 
+  plug :require_authenticate when action in [:latest]
+
   def latest(conn, _params) do
     quote = LoadQuote.execute
 

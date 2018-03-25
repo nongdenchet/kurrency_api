@@ -11,7 +11,12 @@ defmodule Adapter.KurrencyApi do
   defp call(url) do
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body)}
+        result = Poison.Parser.parse!(body)
+        if (result["success"]) do
+          {:ok, result}
+        else
+          {:error, result["error"]}
+        end
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, reason}
     end

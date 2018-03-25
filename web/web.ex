@@ -36,6 +36,7 @@ defmodule Kurrency.Web do
 
       import Kurrency.Router.Helpers
       import Kurrency.Gettext
+      import Kurrency.TokenPlug, only: [require_authenticate: 2]
     end
   end
 

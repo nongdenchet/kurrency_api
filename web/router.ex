@@ -11,6 +11,7 @@ defmodule Kurrency.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Kurrency.TokenPlug
   end
 
   scope "/", Kurrency do
