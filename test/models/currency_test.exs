@@ -3,7 +3,7 @@ defmodule Kurrency.CurrencyTest do
 
   alias Kurrency.Currency
 
-  @valid_attrs %{name: "some content", value: "120.5"}
+  @valid_attrs %{name: "some content", value: "120.5", quote_id: 1}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
