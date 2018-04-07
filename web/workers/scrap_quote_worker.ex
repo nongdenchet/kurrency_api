@@ -10,7 +10,7 @@ defmodule Kurrency.ScrapQuoteWorker do
   end
 
   def init(state) do
-    handle_info(:work, state)
+    schedule_work()
     {:ok, state}
   end
 
