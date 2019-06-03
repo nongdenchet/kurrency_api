@@ -3,7 +3,7 @@ defmodule Kurrency.ScrapQuoteWorker do
 
   alias Kurrency.ScrapQuote
 
-  @one_hour 60 * 60 * 1000
+  @period 3 * 60 * 60 * 1000
 
   def start_link do
     GenServer.start_link(__MODULE__, %{})
@@ -30,6 +30,6 @@ defmodule Kurrency.ScrapQuoteWorker do
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, @one_hour)
+    Process.send_after(self(), :work, @period)
   end
 end
