@@ -3,7 +3,7 @@ defmodule Kurrency.Mixfile do
 
   def project do
     [app: :kurrency,
-     version: "0.0.1",
+     version: "1.0.0",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -30,6 +30,7 @@ defmodule Kurrency.Mixfile do
         :postgrex,
         :httpoison,
         :poison,
+        :tzdata,
         :timex
       ]
     ]
@@ -53,6 +54,7 @@ defmodule Kurrency.Mixfile do
      {:cowboy, "~> 1.0"},
      {:httpoison, "~> 1.0"},
      {:poison, "~> 2.0"},
+     {:tzdata, "~> 0.5.21"},
      {:timex, "~> 3.1"}]
   end
 

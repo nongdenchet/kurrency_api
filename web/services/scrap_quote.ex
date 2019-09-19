@@ -18,10 +18,12 @@ defmodule Kurrency.ScrapQuote do
   end
 
   defp insert_data(%{"source" => source, "timestamp" => timestamp, "quotes" => currecies}) do
-      Multi.new
-      |> Multi.run(:quote, &insert_quote(&1, source, timestamp))
-      |> Multi.run(:currecies, &insert_currencies(&1.quote, currecies))
-      |> Repo.transaction
+    Multi.new
+    |> Multi.delete_all(:delete_currecies, Currency)
+    |> Multi.delete_all(:delete_quotes, Quote)
+    |> Multi.run(:quote, &insert_quote(&1, source, timestamp))
+    |> Multi.run(:currecies, &insert_currencies(&1.quote, currecies))
+    |> Repo.transaction
   end
 
   defp insert_quote(_, source, timestamp) do
