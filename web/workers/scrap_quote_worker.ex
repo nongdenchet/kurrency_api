@@ -3,7 +3,7 @@ defmodule Kurrency.ScrapQuoteWorker do
 
   alias Kurrency.ScrapQuote
 
-  @period 3 * 60 * 60 * 1000
+  @period 2 * 60 * 60 * 1000
 
   def start_link do
     GenServer.start_link(__MODULE__, %{})
