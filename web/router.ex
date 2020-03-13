@@ -10,5 +10,6 @@ defmodule Kurrency.Router do
     pipe_through :api
 
     get "/latest", QuoteController, :latest
+    get "/welcome", WelcomeController, :welcome
   end
 end
