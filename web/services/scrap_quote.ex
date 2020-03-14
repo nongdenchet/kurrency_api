@@ -7,8 +7,8 @@ defmodule Kurrency.ScrapQuote do
   alias Adapter.KurrencyApi
 
   def execute do
-    fetch_task = fn -> 
-      KurrencyApi.fetch 
+    fetch_task = fn ->
+      KurrencyApi.fetch
     end
 
     case Retry.retry(fetch_task, 3, 500) do
